@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <div class="toolbar">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="toolbar-btn active" data-lang="th">ไทย</button>
+        <button type="button" class="toolbar-btn" data-lang="en">EN</button>
+      </div>
+      <div class="theme-switch" role="group" aria-label="Theme">
+        <button type="button" class="toolbar-btn" data-theme="light" title="Light mode">☀️</button>
+        <button type="button" class="toolbar-btn active" data-theme="dark" title="Dark mode">🌙</button>
+      </div>
+    </div>
+
+    <header class="header">
+      <h1 class="title" data-i18n="title">สิ่งที่ต้องทำ</h1>
+      <p class="subtitle" data-i18n="subtitle">จัดการงานของคุณให้เป็นระเบียบ</p>
+    </header>
+
+    <main class="main">
+      <form class="add-form" id="addForm">
+        <input
+          type="text"
+          class="input"
+          id="taskInput"
+          data-i18n-placeholder="placeholder"
+          placeholder="เพิ่มงานใหม่..."
+          autocomplete="off"
+        >
+        <button type="submit" class="btn btn-primary" id="addBtn" data-i18n="add">เพิ่ม</button>
+      </form>
+
+      <div class="filters" role="tablist">
+        <button type="button" class="filter-btn active" data-filter="all" data-i18n="filterAll">ทั้งหมด</button>
+        <button type="button" class="filter-btn" data-filter="active" data-i18n="filterActive">ยังไม่เสร็จ</button>
+        <button type="button" class="filter-btn" data-filter="completed" data-i18n="filterCompleted">เสร็จแล้ว</button>
+      </div>
+
+      <ul class="task-list" id="taskList"></ul>
+
+      <div class="footer-stats" id="footerStats">
+        <span id="countText" data-i18n="itemsLeft">0 งานค้าง</span>
+        <button type="button" class="btn btn-ghost" id="clearCompleted" data-i18n="clearCompleted">ล้างรายการที่เสร็จแล้ว</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
